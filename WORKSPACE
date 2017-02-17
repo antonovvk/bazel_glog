@@ -1,7 +1,7 @@
 git_repository(
     name = "bazel_rules",
     remote = "https://github.com/antonovvk/bazel_rules",
-    commit = "36c56e5b96731d01693500f86dcb23ff9b405e34",
+    commit = "da0b024f29cbd8cad5cf29e7509327a312353864",
 )
 
 new_git_repository(
