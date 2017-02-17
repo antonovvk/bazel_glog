@@ -82,7 +82,6 @@ cc_library(
         ":gen_headers",
     ],
     includes = [
-        #~ ".",
         "src",
     ],
     copts = [
