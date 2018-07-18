@@ -74,7 +74,6 @@ cc_fix_config(
 )
 
 cc_library(
-    visibility = ["//visibility:public"],
     name = "glog",
     deps = [
         "//external:gflags",
@@ -108,5 +107,66 @@ cc_library(
     ],
     linkopts = [
         "-pthread",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+cc_test(
+    name = "logging_unittest",
+    srcs = [
+        "src/config_for_unittests.h",
+        "src/logging_unittest.cc",
+    ],
+    data = [
+        "src/logging_unittest.err",
+    ],
+    copts = [
+        "-isystem $(GENDIR)/external/gflags_repo/",
+    ],
+    deps = [
+        "@googletest//:gtest",
+        ":glog",
+    ],
+)
+
+cc_test(
+    name = "stacktrace_unittest",
+    srcs = [
+        "src/stacktrace_unittest.cc",
+    ],
+    copts = [
+        "-isystem $(GENDIR)/external/gflags_repo/",
+    ],
+    deps = [
+        "@googletest//:gtest",
+        ":glog",
+    ],
+)
+
+cc_test(
+    name = "symbolize_unittest",
+    srcs = [
+        "src/symbolize_unittest.cc",
+    ],
+    copts = [
+        "-isystem $(GENDIR)/external/gflags_repo/",
+    ],
+    deps = [
+        "@googletest//:gtest",
+        ":glog",
+    ],
+)
+
+cc_test(
+    name = "utilities_unittest",
+    srcs = [
+        "src/utilities_unittest.cc",
+    ],
+    copts = [
+        "-isystem $(GENDIR)/external/gflags_repo/",
+    ],
+    deps = [
+        "@googletest//:gtest",
+        ":glog",
     ],
 )

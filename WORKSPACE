@@ -1,14 +1,20 @@
 git_repository(
     name = "bazel_rules",
     remote = "https://github.com/antonovvk/bazel_rules",
-    commit = "da0b024f29cbd8cad5cf29e7509327a312353864",
+    commit = "92d68c1b116f1d1335c0cf570be5ddf4f5645e5b",
 )
 
 new_git_repository(
     name = "glog_repo",
     remote = "https://github.com/google/glog.git",
-    commit = "b6a5e0524c28178985f0d228e9eaa43808dbec3c",
+    tag = "v0.3.5",
     build_file = "glog.BUILD"
+)
+
+git_repository(
+    name = "googletest",
+    remote = "https://github.com/google/googletest",
+    commit = "077ee54cefd247656ac9a995e150e0d1ab9d0bf7",
 )
 
 bind(
